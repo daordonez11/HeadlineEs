@@ -160,6 +160,7 @@ body:not(.home-template) .gh-topic-grid .gh-card {
     inset: 0;
     z-index: -1;
     width: 100%;
+    filter: brightness(.5);
 }
 
 .gh-topic-grid .gh-card-image img {
@@ -226,7 +227,8 @@ body:not(.home-template) .gh-topic-grid .gh-card {
 }
 
 .gh-topic-grid .gh-card.featured.large .gh-card-excerpt {
-    display: none;
+    display: block;
+    color: var(--color-white);
 }
 
 .gh-card-footer {

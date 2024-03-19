@@ -1,0 +1,26 @@
+{{{html}}}
+
+<div class="gh-cta-gradient"></div>
+
+<section class="gh-cta">
+    {{#has visibility="paid"}}
+        <h4 class="gh-cta-title">Este artículo es solo para suscriptores pagos</h4>
+    {{/has}}
+    {{#has visibility="members"}}
+        <h4 class="gh-cta-title">Este artículo es solo para suscriptores</h4>
+    {{/has}}
+    {{#has visibility="tiers"}}
+        <h4 class="gh-cta-title">¿Quieres acceder a las píldoras de crecimiento? Este contenido es exclusivo para nuestro miembros Crecimiento +</h4>
+        <p>Los miembros pagos de Crecimiento + acceden a todas nuestras píldoras de crecimiento y a un resumen semanal de todas las píldoras de la semana</p>
+    {{/has}}
+
+    <div class="gh-cta-actions">
+        {{#if @member}}
+            <a class="gh-head-btn gh-btn gh-primary-btn" target="_blank"
+             href="https://www.mercadopago.com.co/subscriptions/checkout?preapproval_plan_id=2c9380848e1d0a2f018e3576778911db" style="color:white;text-decoration:solid">Hazte miembro</a>
+        {{else}}
+            <a class="gh-head-btn gh-btn gh-primary-btn" target="_blank" href="https://www.mercadopago.com.co/subscriptions/checkout?preapproval_plan_id=2c9380848e1d0a2f018e3576778911db" style="color:white;text-decoration:solid">Hazte miembro</a>
+            <span class="gh-cta-link" href="#/portal/signin" data-portal="signin">¿Ya tienes cuenta? Ingresar</span>
+        {{/if}}
+    </div>
+</section>
