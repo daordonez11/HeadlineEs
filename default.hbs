@@ -9,7 +9,15 @@
 
     {{ghost_head}}
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YZ3SKS2685"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-YZ3SKS2685');
+</script>
 <body class="{{body_class}}{{{block "body_class"}}} is-head-{{#match @custom.navigation_layout "Logo on the left"}}left-logo{{else match @custom.navigation_layout "Logo in the middle"}}middle-logo{{else}}stacked{{/match}}{{#match @custom.title_font "=" "Elegant serif"}} has-serif-title{{/match}}{{#match @custom.body_font "=" "Elegant serif"}} has-serif-body{{/match}}{{#is "tag"}}{{#if tag.feature_image}} is-head-transparent{{/if}}{{/is}}{{#match @custom.header_style "Accent color"}} is-head-brand{{/match}}{{#match @custom.header_style "Dark"}} is-head-dark{{/match}}">
 <div class="gh-site">
 
@@ -30,7 +38,7 @@
                     </a>
                     {{#is "home"}}</h1>{{/is}}
                 </div>
-                <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search>{{> "icons/search"}}</button>
+                <button class="gh-search gh-icon-btn" aria-label="Buscar en este sitio" data-ghost-search>{{> "icons/search"}}</button>
                 <button class="gh-burger"></button>
             </div>
 
@@ -38,7 +46,7 @@
                 {{navigation}}
                 {{#unless @site.members_enabled}}
                     {{#match @custom.navigation_layout "Stacked"}}
-                        <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search>{{> "icons/search"}}</button>
+                        <button class="gh-search gh-icon-btn" aria-label="Buscar en este sitio" data-ghost-search>{{> "icons/search"}}</button>
                     {{/match}}
                 {{/unless}}
             </nav>
@@ -46,25 +54,55 @@
             <div class="gh-head-actions">
                 {{#unless @site.members_enabled}}
                     {{^match @custom.navigation_layout "Stacked"}}
-                        <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search>{{> "icons/search"}}</button>
+                        <button class="gh-search gh-icon-btn" aria-label="Buscar en este sitio" data-ghost-search>{{> "icons/search"}}</button>
                     {{/match}}
                 {{else}}
-                    <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search>{{> "icons/search"}}</button>
+                    <button class="gh-search gh-icon-btn" aria-label="Buscar en este sitio" data-ghost-search>{{> "icons/search"}}</button>
                     <div class="gh-head-members">
                         {{#unless @member}}
                             {{#unless @site.members_invite_only}}
-                                <a class="gh-head-link" href="#/portal/signin" data-portal="signin">Sign in</a>
-                                <a class="gh-head-btn gh-btn gh-primary-btn" href="#/portal/signup" data-portal="signup">Subscribe</a>
+                                <a class="gh-head-link" href="#/portal/signin" data-portal="signin">Ingresar</a>
+                                <a class="gh-head-btn gh-btn gh-primary-btn" href="#/portal/signup" data-portal="signup">Suscríbete</a>
+                                <a class="gh-head-btn gh-btn gh-primary-btn" target="_blank"
+                                 href="https://www.mercadopago.com.co/subscriptions/checkout?preapproval_plan_id=2c9380848e1d0a2f018e3576778911db" >Membresía</a>
                             {{else}}
-                                <a class="gh-head-btn gh-btn gh-primary-btn" href="#/portal/signin" data-portal="signin">Sign in</a>
+                                <a class="gh-head-btn gh-btn gh-primary-btn" href="#/portal/signin" data-portal="signin">Ingresar</a>
                             {{/unless}}
                         {{else}}
-                            <a class="gh-head-btn gh-btn gh-primary-btn" href="#/portal/account" data-portal="account">Account</a>
+                            <a class="gh-head-btn gh-btn gh-primary-btn" href="#/portal/account" data-portal="account">Cuenta</a>
                         {{/unless}}
                     </div>
                 {{/unless}}
             </div>
         </div>
+        <style>
+            .share-block {
+                margin-top: 8rem;
+                text-align: center;
+            }
+            .share-block span {
+                display: inline-block;
+                font-weight: bold;
+                margin-right: 1rem;
+                font-size: 2rem;
+            }
+            .share-block a {
+                display: inline-block;
+                transition: all 0.3s;
+                margin: 0 0.25rem;
+            }
+            .share-block a:hover {
+                transform: scale(1.1);
+            }
+            .whatsapp-ico{
+                fill: white;
+                width: 30px;
+                height: 30px;
+                padding: 3px;
+                background-color: #4dc247;
+                border-radius: 50%;  
+            }
+        </style>
     </header>
 
     {{{body}}}
@@ -74,11 +112,11 @@
             {{#if @site.members_enabled}}
             {{#unless @member}}
                 <section class="gh-subscribe">
-                    <h3 class="gh-subscribe-title">Subscribe to {{@site.title}}</h3>
+                    <h3 class="gh-subscribe-title">Suscríbete a {{@site.title}}</h3>
                     {{#if @custom.email_signup_text}}
                         <div class="gh-subscribe-description">{{@custom.email_signup_text}}</div>
                     {{/if}}
-                    <button class="gh-subscribe-btn gh-btn" data-portal="signup">{{> "icons/email"}} Subscribe now</button>
+                    <button class="gh-subscribe-btn gh-btn" data-portal="signup">{{> "icons/email"}} Suscribirse ahora</button>
                 </section>
             {{/unless}}
             {{/if}}
@@ -89,7 +127,7 @@
 
             <div class="gh-copyright">
                 {{#unless @custom.footer_text}}
-                    {{@site.title}} © {{date format="YYYY"}}. Powered by <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
+                    {{@site.title}} © {{date format="YYYY"}}. Creado con <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
                 {{else}}
                     {{@custom.footer_text}}
                 {{/unless}}
