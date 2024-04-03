@@ -64,14 +64,14 @@
                                 <a class="gh-head-link" href="#/portal/signin" data-portal="signin">Ingresar</a>
                                 <a class="gh-head-btn gh-btn gh-primary-btn" href="#/portal/signup" data-portal="signup">Suscríbete gratis</a>
                                 <a class="gh-head-btn gh-btn gh-primary-btn" target="_blank"
-                                 href="https://www.mercadopago.com.co/subscriptions/checkout?preapproval_plan_id=2c9380848e1d0a2f018e3576778911db" >Membresía</a>
+                                 href="https://www.mercadopago.com.co/subscriptions/checkout?preapproval_plan_id=2c9380848e1d0a2f018e3576778911db" >Hazte miembro</a>
                             {{else}}
                                 <a class="gh-head-btn gh-btn gh-primary-btn" href="#/portal/signin" data-portal="signin">Ingresar</a>
                             {{/unless}}
                         {{else}}
                             {{#unless @member.paid}}
                                 <a class="gh-head-btn gh-btn gh-primary-btn" target="_blank"
-                                 href="https://www.mercadopago.com.co/subscriptions/checkout?preapproval_plan_id=2c9380848e1d0a2f018e3576778911db" >Membresía</a>
+                                 href="https://www.mercadopago.com.co/subscriptions/checkout?preapproval_plan_id=2c9380848e1d0a2f018e3576778911db" >Hazte miembro</a>
                             {{/unless}}
                             <a class="gh-head-btn gh-btn gh-primary-btn" href="#/portal/account" data-portal="account">Cuenta</a>
                         {{/unless}}
@@ -122,7 +122,17 @@
                     {{/if}}
                     <button class="gh-subscribe-btn gh-btn" data-portal="signup">{{> "icons/email"}} Suscribirse ahora</button>
                 </section>
+            {{else}}
+                {{#unless @member.paid}}
+                    <section class="gh-subscribe">
+                        <h3 class="gh-subscribe-title">Hazte miembro pago de {{@site.title}}</h3>
+                        <div class="gh-subscribe-description">Si quieres apoyar nuestro trabajo, y mantener este espacio libre de publicidad, te invitamos a ser miembro pago por sólo 1 dólar a la semana</div>
+                        <a class="gh-subscribe-btn gh-btn" target="_blank"
+                            href="https://www.mercadopago.com.co/subscriptions/checkout?preapproval_plan_id=2c9380848e1d0a2f018e3576778911db" >Hazte miembro</a>    
+                    </section>
+                {{/unless}}
             {{/unless}}
+            
             {{/if}}
 
             <nav class="gh-foot-menu">
